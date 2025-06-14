@@ -1,0 +1,173 @@
+# Xilinx Vivado FPGA Project .gitignore
+
+# ==============================================================================
+# Vivado Project Files (자동 생성되는 파일들)
+# ==============================================================================
+
+# Cache 디렉토리 (자동 생성, 재빌드 가능)
+**/.cache/
+**/cache/
+**/.Xil/
+**/vivado_pid*.str
+
+# Simulation 생성 파일들
+**/*.sim/
+**/xsim.dir/
+**/*.wdb
+**/*.wcfg
+**/*.jou
+**/*.log
+**/*.pb
+**/*.backup.jou
+**/*.backup.log
+**/*.tcl
+**/compile.bat
+**/elaborate.bat
+**/simulate.bat
+**/xsim.ini
+**/xvlog.log
+**/xelab.pb
+**/xvlog.pb
+**/webtalk*.jou
+**/webtalk*.log
+
+# Synthesis & Implementation Run Files
+**/*.runs/
+**/__synthesis_is_complete__
+**/*.dcp
+**/*.rpt
+**/*.vds
+**/gen_run.xml
+**/rundef.js
+**/runme.bat
+**/runme.sh
+**/runme.log
+**/htr.txt
+**/ISEWrap.js
+**/ISEWrap.sh
+**/project.wdf
+**/synthesis_details.wdf
+**/synthesis.wdf
+
+# Hardware files (자동 생성)
+**/*.hw/
+**/*.lpr
+
+# IP User Files (자동 생성)
+**/*.ip_user_files/
+
+# Vivado GUI 관련 임시 파일들
+vivado.jou
+vivado.log
+vivado_pid*.str
+**/*.str
+
+# Build artifacts
+**/*.bit
+**/*.ltx
+**/*.syr
+**/*.ngc
+**/*.xrpt
+
+# ==============================================================================
+# 프로젝트별 임시/캐시 파일
+# ==============================================================================
+
+# Webtalk 파일들
+**/webtalk_pa.xml
+**/gui_handlers.wdf
+**/java_command_handlers.wdf
+**/project.wpc
+
+# 컴파일된 라이브러리들
+**/compile_simlib/
+
+# IP 캐시
+**/ip/
+
+# ==============================================================================
+# OS 및 에디터 관련 파일들
+# ==============================================================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# 에디터 임시 파일들
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-workspace
+
+# ==============================================================================
+# 버전 관리에 포함해야 할 중요한 파일들 (명시적 추가)
+# ==============================================================================
+
+# 프로젝트 파일 (중요!)
+!*.xpr
+
+# 소스 코드 (중요!)
+!**/*.v
+!**/*.vhd
+!**/*.sv
+!**/*.vhdl
+
+# 제약 파일 (중요!)
+!**/*.xdc
+!**/*.ucf
+!**/*.sdc
+
+# IP 설정 파일들 (프로젝트별로 다를 수 있음)
+!**/*.xci
+!**/*.xcix
+
+# 문서 파일들
+!README.md
+!*.txt
+!*.md
+
+# ==============================================================================
+# 특별한 경우들
+# ==============================================================================
+
+# Block Design 파일들 (있다면 포함)
+!**/*.bd
+
+# Memory 초기화 파일들 (있다면 포함)
+!**/*.coe
+!**/*.mem
+!**/*.mif
+
+# 사용자 정의 스크립트들 (있다면 포함)
+!**/*.tcl
+# 단, 자동 생성된 .tcl 파일들은 제외
+**/*_vlog.prj
+**/*_behav.wdb
+**/tb_*_vlog.prj
+**/register_vlog.prj
+
+# ==============================================================================
+# 추가 권장사항
+# ==============================================================================
+
+# Backup 파일들
+*.bak
+*.backup
+
+# 임시 디렉토리
+tmp/
+temp/
+
+# Vivado 버전별 특화 파일들 (2019.2 기준)
+**/2019.2/

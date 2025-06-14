@@ -1,119 +1,114 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-//
-// Module Name: tb_register
-// Description: Testbench for verifying the register.v module
-// 설명: register.v 모듈을 검증하기 위한 테스트벤치
-//
-////////////////////////////////////////////////////////////////////////////////
-
-module tb_register;
+module tb_alu_final;
 
     // --- Test Signals ---
-    // --- 테스트 신호들 ---
-    reg         clk;        // 클럭 신호
-    reg         rst;        // 리셋 신호
-    reg         RegWrite;   // 레지스터 쓰기 활성화 신호
-    reg  [3:0]  Rd1;        // 첫 번째 읽기 주소
-    reg  [3:0]  Rd2;        // 두 번째 읽기 주소
-    reg  [3:0]  Wr;         // 쓰기 주소
-    reg  [3:0]  Write_data; // 쓰기 데이터
+    reg  [3:0] A_in;
+    reg  [3:0] B_in;
+    reg  [3:0] ALUOp_in;
+    wire [3:0] Result_out;
+    wire       Overflow_out;
 
-    // --- Module Outputs ---
-    // --- 모듈 출력 ---
-    wire [3:0]  Rd1_out;    // 첫 번째 읽기 출력 데이터
-    wire [3:0]  Rd2_out;    // 두 번째 읽기 출력 데이터
-
-    // --- Instantiate the Module Under Test (MUT) ---
-    // --- 테스트 대상 모듈 인스턴스화 ---
-    register uut (
-        .clk(clk),
-        .rst(rst),
-        .RegWrite(RegWrite),
-        .Rd1(Rd1),
-        .Rd2(Rd2),
-        .Wr(Wr),
-        .Write_data(Write_data),
-        .Rd1_out(Rd1_out),
-        .Rd2_out(Rd2_out)
+    // --- Instantiate the ALU ---
+    alu uut (
+        .A(A_in),
+        .B(B_in),
+        .ALUOp(ALUOp_in),
+        .Result(Result_out),
+        .Overflow(Overflow_out)
     );
-
-    // --- Clock Generation ---
-    // --- 클럭 생성 ---
-    initial clk = 0;
-    always #5 clk = ~clk;   // 10ns 주기 클럭 (100MHz)
-
-    // --- Test Scenario Synchronized to Clock ---
-    // --- 클럭과 동기화된 테스트 시나리오 ---
+    
     initial begin
-        // 1. Initialize all signals at T=0
-        // 1. T=0에서 모든 신호 초기화
-        rst = 0;
-        RegWrite = 0;
-        Rd1 = 0; Rd2 = 0; Wr = 0; Write_data = 0;
-        $display("----------------- Simulation Start -----------------");
-
-        // 2. Reset the system for 2 clock cycles
-        // 2. 2 클럭 사이클 동안 시스템 리셋
-        @(posedge clk); // Move to T=5ns - T=5ns로 이동
-        rst <= 1;
-        $display("[T=%0t ns] Asserting Reset.", $time);
+        // =================================================================
+        // Part 1: 정상 경우 테스트 (A=6, B=3)
+        // =================================================================
+        A_in = 6;
+        B_in = 3;
         
-        @(posedge clk); // T=15ns
-        @(posedge clk); // T=25ns
-        rst <= 0;
-        $display("[T=%0t ns] De-asserting Reset. Registers are now all 0.", $time);
-
-        // 3. Write Operation 1
-        // 3. 첫 번째 쓰기 동작
-        @(posedge clk); // T=35ns
-        $display("[T=%0t ns] Test 1: Writing value 10 to Register 5.", $time);
-        RegWrite <= 1;      // 쓰기 활성화
-        Wr       <= 5;      // 주소 5
-        Write_data <= 10;   // 데이터 10
-
-        // 4. Write Operation 2
-        // 4. 두 번째 쓰기 동작
-        @(posedge clk); // T=45ns. Write 1 happens here. - T=45ns. 첫 번째 쓰기가 실행됨
-        $display("[T=%0t ns] Test 2: Writing value 12 to Register 10.", $time);
-        Wr       <= 10;     // 주소 10
-        Write_data <= 12;   // 데이터 12
-
-        // 5. Read Operation
-        // 5. 읽기 동작
-        @(posedge clk); // T=55ns. Write 2 happens here. - T=55ns. 두 번째 쓰기가 실행됨
-        RegWrite <= 0;      // 쓰기 비활성화
-        Wr       <= 0;      // 쓰기 주소 클리어
-        Write_data <= 0;    // 쓰기 데이터 클리어
-
-        $display("[T=%0t ns] Test 3: Reading from Reg 5 & 10.", $time);
-        Rd1 <= 5;           // 레지스터 5에서 읽기
-        Rd2 <= 10;          // 레지스터 10에서 읽기
-        #1; // Wait 1ps for combinational read to propagate - 조합회로 읽기 전파를 위해 1ps 대기
-        $display("           Result: Rd1_out=%d, Rd2_out=%d. (Expecting 10 and 12)", Rd1_out, Rd2_out);
-
-        // 6. Test Register-Zero
-        // 6. 0번 레지스터 테스트
-        @(posedge clk); // T=65ns
-        $display("[T=%0t ns] Test 4: Attempting to write 15 to Reg 0 (should be ignored).", $time);
-        RegWrite <= 1;      // 쓰기 활성화
-        Wr       <= 0;      // 주소 0 (0번 레지스터)
-        Write_data <= 15;   // 데이터 15
+        $display("---------------------------------------------------");
+        $display("Part 1: Normal Case Test Start (A=%d, B=%d)", A_in, B_in);
+        $display("---------------------------------------------------");
         
-        @(posedge clk); // T=75ns. Write attempt happens here (and is ignored by DUT). - T=75ns. 쓰기 시도 실행 (DUT에서 무시됨)
-        RegWrite <= 0;      // 쓰기 비활성화
-        Wr       <= 0;      // 입력 클리어
-        Write_data <= 0;    // 입력 클리어
+        // --- Test 0: NOP ---
+        ALUOp_in = 4'h0; #10;
+        if(Result_out===4'd0 && !Overflow_out) $display("[PASS] Op 0: NOP"); else $display("[FAIL] Op 0: NOP");
+        // --- Test 1: Write ---
+        ALUOp_in = 4'h1; #10;
+        if(Result_out===3 && !Overflow_out) $display("[PASS] Op 1: Write"); else $display("[FAIL] Op 1: Write");
+        // --- Test 2: Read ---
+        ALUOp_in = 4'h2; #10;
+        if(Result_out===6 && !Overflow_out) $display("[PASS] Op 2: Read"); else $display("[FAIL] Op 2: Read");
+        // --- Test 3: Copy ---
+        ALUOp_in = 4'h3; #10;
+        if(Result_out===6 && !Overflow_out) $display("[PASS] Op 3: Copy"); else $display("[FAIL] Op 3: Copy");
+        // --- Test 4: NOT ---
+        ALUOp_in = 4'h4; #10;
+        if(Result_out===9 && !Overflow_out) $display("[PASS] Op 4: NOT"); else $display("[FAIL] Op 4: NOT");
+        // --- Test 5: AND ---
+        ALUOp_in = 4'h5; #10;
+        if(Result_out===2 && !Overflow_out) $display("[PASS] Op 5: AND"); else $display("[FAIL] Op 5: AND");
+        // --- Test 6: OR ---
+        ALUOp_in = 4'h6; #10;
+        if(Result_out===7 && !Overflow_out) $display("[PASS] Op 6: OR"); else $display("[FAIL] Op 6: OR");
+        // --- Test 7: XOR ---
+        ALUOp_in = 4'h7; #10;
+        if(Result_out===5 && !Overflow_out) $display("[PASS] Op 7: XOR"); else $display("[FAIL] Op 7: XOR");
+        // --- Test 8: NAND ---
+        ALUOp_in = 4'h8; #10;
+        if(Result_out===13 && !Overflow_out) $display("[PASS] Op 8: NAND"); else $display("[FAIL] Op 8: NAND");
+        // --- Test 9: NOR ---
+        ALUOp_in = 4'h9; #10;
+        if(Result_out===8 && !Overflow_out) $display("[PASS] Op 9: NOR"); else $display("[FAIL] Op 9: NOR");
+        // --- Test 10: ADD ---
+        ALUOp_in = 4'hA; #10;
+        if(Result_out===9 && !Overflow_out) $display("[PASS] Op A: ADD"); else $display("[FAIL] Op A: ADD");
+        // --- Test 11: SUB ---
+        ALUOp_in = 4'hB; #10;
+        if(Result_out===3 && !Overflow_out) $display("[PASS] Op B: SUB"); else $display("[FAIL] Op B: SUB");
+        // --- Test 12: ADDI ---
+        ALUOp_in = 4'hC; #10;
+        if(Result_out===9 && !Overflow_out) $display("[PASS] Op C: ADDI"); else $display("[FAIL] Op C: ADDI");
+        // --- Test 13: SUBI ---
+        ALUOp_in = 4'hD; #10;
+        if(Result_out===3 && !Overflow_out) $display("[PASS] Op D: SUBI"); else $display("[FAIL] Op D: SUBI");
+        // --- Test 14: Left Shift ---
+        ALUOp_in = 4'hE; #10;
+        if(Result_out===8 && !Overflow_out) $display("[PASS] Op E: Left Shift"); else $display("[FAIL] Op E: Left Shift");
+        // --- Test 15: Right Shift ---
+        ALUOp_in = 4'hF; #10;
+        if(Result_out===0 && !Overflow_out) $display("[PASS] Op F: Right Shift"); else $display("[FAIL] Op F: Right Shift");
 
-        $display("[T=%0t ns] Test 5: Reading from Reg 0.", $time);
-        Rd1 <= 0;           // 레지스터 0에서 읽기
-        #1;
-        $display("           Result: Rd1_out=%d. (Expecting 0)", Rd1_out);
+        // =================================================================
+        // Part 2: 오버플로 경우 테스트 (A=5, B=4)
+        // =================================================================
+        A_in = 5;
+        B_in = 4;
 
-        #20;
-        $display("----------------- Simulation End -----------------");
-        $finish;
+        $display("\n---------------------------------------------------");
+        $display("Part 2: Overflow Case Test Start (A=%d, B=%d)", A_in, B_in);
+        $display("---------------------------------------------------");
+
+        // --- Test 0: NOP ---
+        ALUOp_in = 4'h0; #10;
+        if(Result_out===0 && !Overflow_out) $display("[PASS] Op 0: NOP"); else $display("[FAIL] Op 0: NOP");
+        // ... (논리/이동 연산들은 Overflow가 0인지 함께 확인) ...
+        ALUOp_in = 4'h5; #10;
+        if(Result_out===4 && !Overflow_out) $display("[PASS] Op 5: AND"); else $display("[FAIL] Op 5: AND");
+        
+        // --- Test 10: ADD (Overflow 발생 예상) ---
+        $display("--- Testing Op A: ADD (Expecting Overflow) ---");
+        ALUOp_in = 4'hA; #10;
+        if(Result_out===4'b1001 && Overflow_out) $display("[PASS] Op A: ADD - Overflow Detected!"); else $display("[FAIL] Op A: ADD - Overflow NOT Detected or wrong result.");
+
+        // --- Test 11: SUB (Overflow 발생 안 함) ---
+        $display("--- Testing Op B: SUB (No Overflow) ---");
+        ALUOp_in = 4'hB; #10;
+        if(Result_out===1 && !Overflow_out) $display("[PASS] Op B: SUB"); else $display("[FAIL] Op B: SUB");
+
+        $display("---------------------------------------------------");
+        $display("All Tests Finished.");
+        $display("---------------------------------------------------");
+        #10 $finish;
     end
 
 endmodule

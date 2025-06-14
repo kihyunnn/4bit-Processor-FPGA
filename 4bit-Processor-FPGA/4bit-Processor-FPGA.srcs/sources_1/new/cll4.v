@@ -1,13 +1,8 @@
 `timescale 1ns / 1ps
 
-//////////////////////////////////////////////////////////////////////////////////
-// Module Name: cll4
-// Description: 4-bit Carry Lookahead Logic unit
-//////////////////////////////////////////////////////////////////////////////////
-
 module cll4 (
-    input  [3:0] Gin,   // 4개의 G 신호 입력 (G[3:0])
-    input  [3:0] Pin,   // 4개의 P 신호 입력 (P[3:0])
+    input  [3:0] Gin,   // 4개의 G 신호 입력 
+    input  [3:0] Pin,   // 4개의 P 신호 입력 
     input        Cin,   // 최초 캐리 입력 (c0)
     output [3:1] C,     // 중간 캐리 출력 c1, c2, c3
     output       Cout   // 최종 캐리 출력 c4
