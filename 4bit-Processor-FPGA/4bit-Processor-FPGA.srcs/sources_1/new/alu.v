@@ -32,7 +32,7 @@ module alu (
     // MSB로 들어오는 캐리(c3)와 나가는 캐리(c4)가 다를 때 오버플로 발생 (XOR)
     wire overflow_detected = cla_c3 ^ cla_cout; 
 
-    // --- 최종 결과 선택 로직 ---
+    // 최종 결과 선택 로직
     always @(*) begin
         Overflow = 1'b0; // 기본적으로 Overflow는 0으로 설정
 
