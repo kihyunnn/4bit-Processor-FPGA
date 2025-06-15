@@ -2,8 +2,8 @@
 `timescale 1ns / 1ps
 
 module debouncer #(
-    parameter N = 10, // 입력이 N 클럭 동안 안정되어야 함
-    parameter K = 4   // N을 카운트하기 위한 비트 수, K >= ceil(log2(N+1))
+    parameter N = 1000000, // 입력이 N 클럭 동안 안정되어야 함
+    parameter K = 20   // N을 카운트하기 위한 비트 수, K >= ceil(log2(N+1))
 ) (
     input clk,
     input noisy,

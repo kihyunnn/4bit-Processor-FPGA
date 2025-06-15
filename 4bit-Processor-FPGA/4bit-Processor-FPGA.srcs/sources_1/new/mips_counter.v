@@ -4,7 +4,7 @@ module mips_counter(
     input             clk_ref,    
     input             rst,
     input      [3:0]  btn,         // 비동기 버튼
-    output     [3:0]  btn_pulse    // 1클럭 펄스 출력sources_1/new/mips_counter.v
+    output     [3:0]  btn_pulse    // 1클럭 펄스 출력
 );
     
     wire clk_100M = clk_ref;

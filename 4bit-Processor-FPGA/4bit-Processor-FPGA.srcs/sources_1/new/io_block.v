@@ -35,10 +35,10 @@ module io_block(
        
     // FSM 
     wire    [3:0]   btn_pulse;
-    mips_counter    c0  (.clk_ref(clk), .rst(rst), .btn(btn), .btn_pulse(btn_pulse));
+    mips_counter    c0  (.clk_ref(clk_100M), .rst(rst), .btn(btn), .btn_pulse(btn_pulse));
     
     mips_fsm f0 (
-        .clk(clk), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn[1]), .btn3(btn_pulse[3]), 
+        .clk(clk_100M), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn[1]), .btn3(btn_pulse[3]), 
         .switch(switch), .result(result), .overflow(overflow),
         .led(led), .ssd3(ssd3), .ssd2(ssd2), .ssd1(ssd1), .ssd0(ssd0), 
         .instruction(instruction));
@@ -61,7 +61,7 @@ module io_block(
     wire       alu_overflow;     // ALU의 Overflow 플래그를 받을 전선
     
     register    m1  (
-        .clk(clk), .rst(rst), .RegWrite(reg_write),
+        .clk(clk_100M), .rst(rst), .RegWrite(reg_write),
         .Rd1(instruction[11:8]), .Rd2(instruction[7:4]), .Wr(instruction[3:0]), 
         .Write_data(alu_result), .Rd1_out(reg_rd1_out), .Rd2_out(reg_rd2_out));
         
