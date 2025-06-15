@@ -15,32 +15,25 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 19804 
+INFO: Helper process launched with PID 10500 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 838.539 ; gain = 234.176
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 838.145 ; gain = 233.703
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'io_block' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:3]
 INFO: [Synth 8-6157] synthesizing module 'clk_gen_100M' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/clk_gen_100M.v:3]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.runs/synth_1/.Xil/Vivado-3828-NoteKihyun/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.runs/synth_1/.Xil/Vivado-3828-NoteKihyun/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.runs/synth_1/.Xil/Vivado-10588-NoteKihyun/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.runs/synth_1/.Xil/Vivado-10588-NoteKihyun/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'clk_gen_100M' (2#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/clk_gen_100M.v:3]
-INFO: [Synth 8-6157] synthesizing module 'hex2ssd' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:3]
-WARNING: [Synth 8-151] case item 4'b1010 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
-WARNING: [Synth 8-151] case item 4'b1011 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
-WARNING: [Synth 8-151] case item 4'b1100 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
-WARNING: [Synth 8-151] case item 4'b1101 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
-INFO: [Synth 8-226] default block is never used [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
-INFO: [Synth 8-6155] done synthesizing module 'hex2ssd' (3#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:3]
-INFO: [Synth 8-6157] synthesizing module 'mips_counter' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_counter.v:3]
 INFO: [Synth 8-6157] synthesizing module 'freq_div_100' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/freq_div_100.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'freq_div_100' (4#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/freq_div_100.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'freq_div_100' (3#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/freq_div_100.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mips_counter' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_counter.v:3]
 INFO: [Synth 8-6157] synthesizing module 'synchronizer' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/synchronizer.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'synchronizer' (5#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/synchronizer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'synchronizer' (4#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/synchronizer.v:3]
 INFO: [Synth 8-6157] synthesizing module 'debouncer' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/debouncer.v:4]
 	Parameter N bound to: 10 - type: integer 
 	Parameter K bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'debouncer' (6#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/debouncer.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'mips_counter' (7#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_counter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (5#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/debouncer.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'mips_counter' (6#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_counter.v:3]
 INFO: [Synth 8-6157] synthesizing module 'mips_fsm' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:3]
 	Parameter CHAR_O bound to: 4'b1010 
 	Parameter CHAR_V bound to: 4'b1011 
@@ -53,9 +46,17 @@ INFO: [Synth 8-6157] synthesizing module 'mips_fsm' [E:/Dev/sync-git/major/digit
 	Parameter s4 bound to: 4'b0100 
 	Parameter s5 bound to: 4'b0101 
 	Parameter s6 bound to: 4'b0110 
-INFO: [Synth 8-155] case statement is not full and has no default [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:46]
-INFO: [Synth 8-155] case statement is not full and has no default [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:59]
-INFO: [Synth 8-6155] done synthesizing module 'mips_fsm' (8#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:49]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:89]
+INFO: [Synth 8-6155] done synthesizing module 'mips_fsm' (7#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/mips_fsm.v:3]
+WARNING: [Synth 8-7023] instance 'f0' of module 'mips_fsm' has 15 connections declared, but only 14 given [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:40]
+INFO: [Synth 8-6157] synthesizing module 'hex2ssd' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:3]
+WARNING: [Synth 8-151] case item 4'b1010 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
+WARNING: [Synth 8-151] case item 4'b1011 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
+WARNING: [Synth 8-151] case item 4'b1100 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
+WARNING: [Synth 8-151] case item 4'b1101 is unreachable [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
+INFO: [Synth 8-226] default block is never used [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'hex2ssd' (8#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/hex2ssd.v:3]
 INFO: [Synth 8-6157] synthesizing module 'control' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/control.v:3]
 INFO: [Synth 8-6155] done synthesizing module 'control' (9#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/control.v:3]
 INFO: [Synth 8-6157] synthesizing module 'register' [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/register.v:3]
@@ -71,15 +72,12 @@ INFO: [Synth 8-6155] done synthesizing module 'cll4' (13#1) [E:/Dev/sync-git/maj
 INFO: [Synth 8-6155] done synthesizing module 'cla4' (14#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/cla4.v:3]
 INFO: [Synth 8-226] default block is never used [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/alu.v:39]
 INFO: [Synth 8-6155] done synthesizing module 'alu' (15#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/alu.v:3]
-WARNING: [Synth 8-3848] Net b in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:23]
-WARNING: [Synth 8-3848] Net a in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:23]
-WARNING: [Synth 8-3848] Net d in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:23]
-WARNING: [Synth 8-3848] Net c in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:23]
-WARNING: [Synth 8-3848] Net Rd2_out in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:64]
+WARNING: [Synth 8-3848] Net result in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:15]
+WARNING: [Synth 8-3848] Net overflow in module/entity io_block does not have driver. [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:16]
 INFO: [Synth 8-6155] done synthesizing module 'io_block' (16#1) [E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/new/io_block.v:3]
-WARNING: [Synth 8-3331] design mips_fsm has unconnected port btn3
+WARNING: [Synth 8-3331] design mips_fsm has unconnected port btn2
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 911.617 ; gain = 307.254
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 912.387 ; gain = 307.945
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -92,12 +90,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 911.617 ; gain = 307.254
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 912.387 ; gain = 307.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 911.617 ; gain = 307.254
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 912.387 ; gain = 307.945
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 911.617 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 912.387 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -110,20 +108,20 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/io_block_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1021.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1016.836 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1021.445 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1016.836 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -132,7 +130,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  e:/Dev/syn
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  e:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for u0/clk_gen. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'mips_fsm'
 ---------------------------------------------------------------------------------------------------
@@ -148,11 +146,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'mips_
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'mips_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 's0' (hex2ssd) to 's1'
-INFO: [Synth 8-223] decloning instance 's0' (hex2ssd) to 's2'
-INFO: [Synth 8-223] decloning instance 's0' (hex2ssd) to 's3'
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -180,7 +175,8 @@ Detailed RTL Component Info :
 	   7 Input      4 Bit        Muxes := 5     
 	  17 Input      4 Bit        Muxes := 2     
 	   7 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 24    
+	   2 Input      3 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 26    
 	   7 Input      1 Bit        Muxes := 11    
 	  16 Input      1 Bit        Muxes := 2     
 	  13 Input      1 Bit        Muxes := 1     
@@ -230,8 +226,9 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 8     
 	   7 Input      4 Bit        Muxes := 5     
 	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 3     
 	   7 Input      1 Bit        Muxes := 11    
-	   2 Input      1 Bit        Muxes := 1     
 Module control 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -276,7 +273,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -288,13 +285,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1016.836 ; gain = 412.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1016.961 ; gain = 412.520
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -306,7 +303,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1018.148 ; gain = 413.707
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -330,13 +327,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -355,25 +352,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -394,13 +391,13 @@ Report Cell Usage:
 |2     |CARRY4    |     7|
 |3     |LUT1      |     6|
 |4     |LUT2      |     8|
-|5     |LUT3      |    10|
-|6     |LUT4      |     7|
-|7     |LUT5      |     3|
-|8     |LUT6      |    17|
-|9     |FDCE      |    26|
-|10    |FDRE      |    38|
-|11    |IBUF      |     2|
+|5     |LUT3      |    14|
+|6     |LUT4      |    11|
+|7     |LUT5      |    28|
+|8     |LUT6      |    25|
+|9     |FDCE      |    14|
+|10    |FDRE      |    78|
+|11    |IBUF      |     7|
 |12    |OBUF      |    20|
 +------+----------+------+
 
@@ -408,40 +405,40 @@ Report Instance Areas:
 +------+---------+---------------+------+
 |      |Instance |Module         |Cells |
 +------+---------+---------------+------+
-|1     |top      |               |   145|
-|2     |  c0     |mips_counter   |    64|
-|3     |    d0   |debouncer      |    14|
-|4     |    s0   |synchronizer   |     3|
-|5     |    u1   |freq_div_100   |    15|
-|6     |    u2   |freq_div_100_0 |    15|
-|7     |    u3   |freq_div_100_1 |    15|
-|8     |  f0     |mips_fsm       |    58|
-|9     |  u0     |clk_gen_100M   |     1|
+|1     |top      |               |   219|
+|2     |  c0     |mips_counter   |    38|
+|3     |    d0   |debouncer      |    13|
+|4     |    d3   |debouncer_0    |    13|
+|5     |    s0   |synchronizer   |     3|
+|6     |    s3   |synchronizer_1 |     3|
+|7     |  f0     |mips_fsm       |   138|
+|8     |  u0     |clk_gen_100M   |     1|
+|9     |  u1     |freq_div_100   |    15|
 +------+---------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1021.445 ; gain = 307.254
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1021.445 ; gain = 417.082
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1022.941 ; gain = 314.051
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.941 ; gain = 418.500
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1021.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1034.922 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1030.836 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1039.137 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-54 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+51 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1030.836 ; gain = 702.910
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1030.836 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1039.137 ; gain = 711.168
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1039.137 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'E:/Dev/sync-git/major/digital_system_final/4bit-Processor-FPGA/4bit-Processor-FPGA.runs/synth_1/io_block.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file io_block_utilization_synth.rpt -pb io_block_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 15 16:25:30 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 15 21:11:41 2025...

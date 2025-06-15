@@ -5,7 +5,7 @@ module mips_fsm(
     input       rst,
     input       btn0,
     input       btn1,
-    // input    btn2,
+    input       btn2,
     input       btn3,
     input       [3:0]   switch,
     input       [3:0]   result,     // ALU 결과 입력 (4비트)
@@ -40,17 +40,47 @@ reg [3:0] opcode, rd1, rd2, wr;
 reg [25:0] exec_cnt;
 
 always @(posedge clk or posedge rst) begin
-    if (rst) begin
+    if (rst)
+    begin
         state <= s0;
-    end else begin
+    end
+    else
+    begin
         case (state)
-            s0: if (btn0) state <= s1;
-            s1: if (btn0) state <= s2;
-            s2: if (btn0) state <= s3;
-            s3: if (btn0) state <= s4;
-            s4: if (btn0) state <= s5;
-            s5: if (exec_cnt == 26'd20) state <= s6;    //실행하고 1초 뒤 done 26'd50_000_000
-            s6: if (btn0) state <= s0;
+            s0: 
+            begin
+                if (btn0) state <= s1;
+                else if (btn3) state <= s0;
+            end
+            s1: 
+            begin
+                if (btn0) state <= s2;
+                else if (btn3) state <= s0;
+            end
+            s2:
+            begin
+                if (btn0) state <= s3;
+                else if (btn3) state <= s0;
+            end
+            s3:
+            begin
+                if (btn0) state <= s4;
+                else if (btn3) state <= s0;
+            end
+            s4:
+            begin
+                if (btn0) state <= s5;
+                else if (btn3) state <= s0;
+            end
+            s5: 
+            begin
+                if (exec_cnt == 26'd50_000_000) state <= s6;    //실행하고 1초 뒤 done 26'd50_000_000
+                else if (btn3) state <= s0;
+            end
+            s6: 
+            begin
+                if (btn0 | btn3) state <= s0;
+            end
         endcase
     end
 end
