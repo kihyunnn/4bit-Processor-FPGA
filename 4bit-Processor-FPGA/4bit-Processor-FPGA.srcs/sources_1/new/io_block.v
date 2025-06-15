@@ -1,84 +1,60 @@
 `timescale 1ns / 1ps
 
+// I/O 블록: 이제 4개의 7-segment 데이터를 계산하여 출력하는 역할만 담당
 module io_block(
-    // input
-    input           clk,
-    // input           rst,
+    input           clk,        // 100MHz 시스템 클럭
+    input           rst,
     input   [3:0]   btn,
     input   [3:0]   switch,
-    // output
-    output  [3:0]   led,    // state
-    output  [1:0]   seg_en, // ssd 선택 신호
-    output  [6:0]   seg_ab,     // ssd data
-    output  [6:0]   seg_cd     // ssd data
-    );
-    wire   [3:0]   result; // ALU result
-    wire           overflow;
-    wire  [15:0]  instruction;
-
-    wire rst = btn[3];
-
-    wire    clk_125M = clk;
-    wire    clk_1M, clk_10K, clk_100;
-    //클럭생성
-    wire clk_100M;
-    clk_gen_100M    u0  (.clk_ref(clk_125M), .rst(rst), .clk_100M(clk_100M));
-
-    // 클럭 분주
-    freq_div_100 u1 (.clk_ref(clk_100M), .rst(rst), .clk_div(clk_1M));
-    freq_div_100 u2 (.clk_ref(clk_1M),   .rst(rst), .clk_div(clk_10K));
-    freq_div_100 u3 (.clk_ref(clk_10K),  .rst(rst), .clk_div(clk_100));
+    input   [3:0]   result,
+    input           overflow,
     
-    //wire    [3:0]   a, b, c, d;
-    wire    [3:0]   ssd0, ssd1, ssd2, ssd3;
-    wire    [6:0]   sega, segb, segc, segd;
-       
-    // FSM 
+    output  [15:0]  instruction,
+    output  [3:0]   led,
+    // [수정] TDM 로직이 Top 모듈로 이동했으므로, 여기서는 4개의 seg 데이터만 출력
+    output  [6:0]   sega,
+    output  [6:0]   segb,
+    output  [6:0]   segc,
+    output  [6:0]   segd
+);
+
+    // --- 내부 신호 ---
     wire    [3:0]   btn_pulse;
-    mips_counter    c0  (.clk_ref(clk_100M), .rst(rst), .btn(btn), .btn_pulse(btn_pulse));
-    
-    mips_fsm f0 (
-        .clk(clk_100M), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn[1]), .btn3(btn_pulse[3]), 
-        .switch(switch), .result(result), .overflow(overflow),
-        .led(led), .ssd3(ssd3), .ssd2(ssd2), .ssd1(ssd1), .ssd0(ssd0), 
-        .instruction(instruction));
-        
-   // hex2ssd 모듈 인스턴스화 (자리수별)
-    hex2ssd     s0  (.hex(ssd0), .seg(segd));
-    hex2ssd     s1  (.hex(ssd1), .seg(segc));
-    hex2ssd     s2  (.hex(ssd2), .seg(segb));
-    hex2ssd     s3  (.hex(ssd3), .seg(sega));
-    
-    wire    reg_write, alu_src;
-    wire    [3:0]   alu_op;      
-    control m0  (.opcode(instruction[15:12]), .reg_write(reg_write), .alu_op(alu_op), .alu_src(alu_src));
-    
-    // register - mux - alu 에 필요한 wire
-    wire [3:0] reg_rd1_out;      // Register의 첫 번째 출력(Rd1_out)을 받을 전선
-    wire [3:0] reg_rd2_out;      // Register의 두 번째 출력(Rd2_out)을 받을 전선
-    wire [3:0] mux_out;          // MUX의 출력을 받을 전선
-    wire [3:0] alu_result;       // ALU의 최종 결과(Result)를 받을 전선
-    wire       alu_overflow;     // ALU의 Overflow 플래그를 받을 전선
-    
-    register    m1  (
-        .clk(clk_100M), .rst(rst), .RegWrite(reg_write),
-        .Rd1(instruction[11:8]), .Rd2(instruction[7:4]), .Wr(instruction[3:0]), 
-        .Write_data(alu_result), .Rd1_out(reg_rd1_out), .Rd2_out(reg_rd2_out));
-        
-    MUX_RtoA    m2  (.in0_reg(reg_rd2_out), .in1_inst(instruction[7:4]), .alu_src(alu_src), .out_data_to_alu(mux_out));
-    
-    alu m3 (
-    .A(reg_rd1_out),
-    .B(mux_out),
-    .ALUOp(alu_op),
-    .Result(alu_result),
-    .Overflow(alu_overflow)
-	);
+    wire    [3:0]   fsm_ssd0, fsm_ssd1, fsm_ssd2, fsm_ssd3;
 
-	assign led = led;
-	assign seg_en = clk_1M ? 2'b11 : 2'b00;
-	assign seg_ab = clk_1M ? segb : sega;
-	assign seg_cd = clk_1M ? segd : segc;
-	assign instruction = instruction;
+    // --- 안정적인 버튼 처리 로직 ---
+    integer i;
+    reg [3:0] btn_sync_r1, btn_sync_r2, btn_stable, btn_stable_d;
+    reg [19:0] debounce_cnt[3:0];
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            {btn_sync_r1, btn_sync_r2, btn_stable, btn_stable_d} <= 16'b0;
+            for (i=0; i<4; i=i+1) debounce_cnt[i] <= 0;
+        end else begin
+            btn_sync_r1 <= btn; btn_sync_r2 <= btn_sync_r1;
+            for (i=0; i<4; i=i+1) begin
+                if (btn_sync_r2[i] != btn_stable[i]) debounce_cnt[i] <= 0;
+                else if (debounce_cnt[i] < 20'd1_000_000) debounce_cnt[i] <= debounce_cnt[i] + 1;
+                else btn_stable[i] <= btn_sync_r2[i];
+            end
+            btn_stable_d <= btn_stable;
+        end
+    end
+    assign btn_pulse = btn_stable & ~btn_stable_d;
+
+    // --- FSM ---
+    mips_fsm u_fsm (
+        .clk(clk), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn_stable[1]), .btn2(btn_pulse[2]), .btn3(rst),
+        .switch(switch), .result(result), .overflow(overflow),
+        .led(led), .ssd0(fsm_ssd0), .ssd1(fsm_ssd1), .ssd2(fsm_ssd2), .ssd3(fsm_ssd3), 
+        .instruction(instruction)
+    );
+
+    // --- hex to 7-segment 변환 ---
+    // 변환된 데이터를 sega, segb, segc, segd 출력 포트로 바로 연결
+    hex2ssd u_hex2ssd_0 (.hex(fsm_ssd0), .seg(sega));
+    hex2ssd u_hex2ssd_1 (.hex(fsm_ssd1), .seg(segb));
+    hex2ssd u_hex2ssd_2 (.hex(fsm_ssd2), .seg(segc));
+    hex2ssd u_hex2ssd_3 (.hex(fsm_ssd3), .seg(segd));
     
 endmodule
