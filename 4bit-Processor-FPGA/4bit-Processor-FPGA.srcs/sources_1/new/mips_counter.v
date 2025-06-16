@@ -39,7 +39,8 @@ module mips_counter(
         else 
         begin
             d_btn_d <= d_btn;
-            pulse   <= d_btn & ~d_btn_d;  // 상승 에지
+            // pulse   <= d_btn & ~d_btn_d;  // 상승 에지
+            pulse   <= (d_btn & ~d_btn_d) ? 4'b1111 : 4'b0000; //에지 감지시 펄스가 최대 1클럭만 1이되며 그 이상 유지 안됨. 테스트
         end
     end
 
