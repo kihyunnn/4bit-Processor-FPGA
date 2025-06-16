@@ -91,6 +91,11 @@ always @(posedge clk) begin
         begin
             led <= 4'b0000;
             exec_cnt <= 0;
+            // 상태 0에서 SSD 값 초기화 -> 한번돌리고 다시 상태1로 돌아왔을 때 맨뒤에 숫자 2개가 그대로 남아있어서 일케 초기화해봄
+            ssd0 <= 4'b0000;
+            ssd1 <= 4'b0000;
+            ssd2 <= 4'b0000;
+            ssd3 <= 4'b0000;
         end
         s1: 
         begin

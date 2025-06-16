@@ -36,6 +36,10 @@ module register (
             for (i = 0; i < 16; i = i + 1) begin
                 registers[i] <= 4'b0000;
             end
+            // 3번 주소에 5 (4'b0101) 값을 하드코딩하여 저장 -> 읽기 테스트용. 3번주소에 5번값 read 먼저 테스트
+            registers[3] <= 4'b0101;  // 3번 주소에 5를 저장
+            registers[4] <= 4'b0001;  // 4번 주소에 1를 저장
+            registers[5] <= 4'b0111;  // 5번 주소에 7를 저장
         end else if (RegWrite && (Wr != 4'b0000)) begin
             registers[Wr] <= Write_data;
         end
