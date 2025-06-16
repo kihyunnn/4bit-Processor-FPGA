@@ -38,7 +38,7 @@ module io_block(
     mips_counter    c0  (.clk_ref(clk_100M), .rst(rst), .btn(btn), .btn_pulse(btn_pulse));
     
     mips_fsm f0 (
-        .clk(clk_100M), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn[1]), .btn3(btn_pulse[3]), 
+        .clk(clk_100M), .rst(rst), .btn0(btn_pulse[0]), .btn1(btn_pulse[1]), .btn3(btn_pulse[3]), // btn1도 펄스로 교체
         .switch(switch), .result(result), .overflow(overflow),
         .led(led), .ssd3(ssd3), .ssd2(ssd2), .ssd1(ssd1), .ssd0(ssd0), 
         .instruction(instruction));
@@ -74,11 +74,13 @@ module io_block(
     .Result(alu_result),
     .Overflow(alu_overflow)
 	);
-
-	assign led = led;
+    // fsm에서 ALU 결과와 오버플로우 플래그를 출력으로 사용
+    assign result   = alu_result;
+    assign overflow = alu_overflow;
+	// assign led = led;
 	assign seg_en = clk_1M ? 2'b11 : 2'b00;
 	assign seg_ab = clk_1M ? segb : sega;
 	assign seg_cd = clk_1M ? segd : segc;
-	assign instruction = instruction;
+	// assign instruction = instruction;
     
 endmodule
