@@ -1,0 +1,23 @@
+# 기본적으로 모든 파일 및 폴더를 무시합니다.
+*
+
+# 이 .gitignore 파일 자체는 무시하지 않습니다.
+!.gitignore
+
+# 루트 디렉토리에서 Zybo-Z7-Master.xdc 파일을 무시하지 않습니다.
+!Zybo-Z7-Master.xdc
+
+# 4bit-Processor-FPGA.srcs 디렉토리 자체는 무시하지 않습니다 (내부 규칙 적용을 위해).
+!4bit-Processor-FPGA.srcs/
+
+# 4bit-Processor-FPGA.srcs 디렉토리 내부의 모든 것을 기본적으로 무시합니다.
+4bit-Processor-FPGA.srcs/*
+
+# 4bit-Processor-FPGA.srcs 내부의 sources_1 폴더와 그 내용물을 무시하지 않습니다.
+!4bit-Processor-FPGA.srcs/sources_1/
+!4bit-Processor-FPGA.srcs/sources_1/**
+
+# 4bit-Processor-FPGA.srcs 내부의 sim_1 폴더와 그 내용물을 무시하지 않습니다.
+# (요청의 "sim_1r"은 "sim_1"의 오타로 가정합니다.)
+!4bit-Processor-FPGA.srcs/sim_1/
+!4bit-Processor-FPGA.srcs/sim_1/**
