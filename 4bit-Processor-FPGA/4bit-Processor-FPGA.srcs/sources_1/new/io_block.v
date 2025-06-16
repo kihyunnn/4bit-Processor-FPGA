@@ -74,11 +74,13 @@ module io_block(
     .Result(alu_result),
     .Overflow(alu_overflow)
 	);
-
+    // fsm에서 ALU 결과와 오버플로우 플래그를 출력으로 사용
+    assign result   = alu_result;
+    assign overflow = alu_overflow;
 	// assign led = led;
 	assign seg_en = clk_1M ? 2'b11 : 2'b00;
 	assign seg_ab = clk_1M ? segb : sega;
 	assign seg_cd = clk_1M ? segd : segc;
-	assign instruction = instruction;
+	// assign instruction = instruction;
     
 endmodule
