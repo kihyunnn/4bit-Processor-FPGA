@@ -10,8 +10,7 @@
 # 4bit-Processor-FPGA.srcs 디렉토리 자체는 무시하지 않습니다 (내부 규칙 적용을 위해).
 !4bit-Processor-FPGA.srcs/
 
-# 4bit-Processor-FPGA.srcs 디렉토리 내부의 모든 것을 기본적으로 무시합니다.
-4bit-Processor-FPGA.srcs/*
+
 
 # 4bit-Processor-FPGA.srcs 내부의 sources_1 폴더와 그 내용물을 무시하지 않습니다.
 !4bit-Processor-FPGA.srcs/sources_1/
